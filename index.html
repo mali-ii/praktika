@@ -1,1 +1,166 @@
-<h1>Мой первый проект</h1>
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Электронный дневник</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="login-box">
+        <h1>Электронный дневник</h1>
+        <p>Добро пожаловать!</p>
+
+        <input type="text" placeholder="Логин">
+        <input type="password" placeholder="Пароль">
+
+    <button onclick="login()">Войти</button>
+    </div>
+<script>
+function login() {
+    let username = document.querySelector('input[type="text"]').value;
+    let password = document.querySelector('input[type="password"]').value;
+
+    if (username === "" || password === "") {
+        alert("Введите логин и пароль!");
+} else {
+document.body.innerHTML = `
+    <div class="dashboard">
+        <h1>Электронный дневник</h1>
+        <h2>Личный кабинет студента</h2>
+        <p>Добро пожаловать, ${username}!</p>
+
+        <div class="menu">
+            <button onclick="showSchedule()">Моё расписание</button>
+            <button onclick="showGrades()">Мои оценки</button>
+           <button onclick="showHomework()">Домашние задания</button>
+            <button onclick="showAttendance()">Посещаемость</button>
+            <button>Мой профиль</button>
+        </div>
+    </div>
+`;
+}
+}
+function showSchedule() {
+    document.body.innerHTML = `
+        <div class="dashboard">
+            <h1>Моё расписание</h1>
+
+            <table>
+                <tr>
+                    <th>День</th>
+                    <th>Предмет</th>
+                </tr>
+                <tr>
+                    <td>Понедельник</td>
+                    <td>Математика</td>
+                </tr>
+                <tr>
+                    <td>Вторник</td>
+                    <td>Информатика</td>
+                </tr>
+                <tr>
+                    <td>Среда</td>
+                    <td>Английский</td>
+                </tr>
+                <tr>
+                    <td>Четверг</td>
+                    <td>История</td>
+                </tr>
+            </table>
+
+            <button onclick="location.reload()">Назад</button>
+        </div>
+    `;
+}
+function showGrades() {
+    document.body.innerHTML = `
+        <div class="dashboard">
+            <h1>Мои оценки</h1>
+
+            <table>
+                <tr>
+                    <th>Предмет</th>
+                    <th>Оценка</th>
+                </tr>
+                <tr>
+                    <td>Математика</td>
+                    <td>5</td>
+                </tr>
+                <tr>
+                    <td>Информатика</td>
+                    <td>4</td>
+                </tr>
+                <tr>
+                    <td>Английский</td>
+                    <td>5</td>
+                </tr>
+                <tr>
+                    <td>История</td>
+                    <td>4</td>
+                </tr>
+            </table>
+
+            <button onclick="location.reload()">Назад</button>
+        </div>
+    `;
+}
+function showHomework() {
+    document.body.innerHTML = `
+        <div class="dashboard">
+            <h1>Домашние задания</h1>
+
+            <table>
+                <tr>
+                    <th>Предмет</th>
+                    <th>Задание</th>
+                </tr>
+                <tr>
+                    <td>Математика</td>
+                    <td>Решить задачи</td>
+                </tr>
+                <tr>
+                    <td>Информатика</td>
+                    <td>Практическая работа</td>
+                </tr>
+                <tr>
+                    <td>Английский</td>
+                    <td>Выучить слова</td>
+                </tr>
+            </table>
+
+            <button onclick="location.reload()">Назад</button>
+        </div>
+    `;
+}
+function showAttendance() {
+    document.body.innerHTML = `
+        <div class="dashboard">
+            <h1>Моя посещаемость</h1>
+
+            <table>
+                <tr>
+                    <th>Дата</th>
+                    <th>Статус</th>
+                </tr>
+                <tr>
+                    <td>03.11.2026</td>
+                    <td>Присутствовал</td>
+                </tr>
+                <tr>
+                    <td>04.11.2026</td>
+                    <td>Присутствовал</td>
+                </tr>
+                <tr>
+                    <td>05.11.2026</td>
+                    <td>Отсутствовал</td>
+                </tr>
+            </table>
+
+            <button onclick="location.reload()">Назад</button>
+        </div>
+    `;
+}
+</script>
+</body>
+</html>
